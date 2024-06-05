@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashing Calculator</title>
+    <link rel="stylesheet" href="styyles.css">
+</head>
+
+<body><br>
+    <br>
+    <br>
+    <h1 style="color: black;">Hashing Table with Various Collision Resolutions Techniques</h1>
+    <div class="container">
+        <h1>Hashing Table</h1>
+        <form id="hashingForm">
+            <label for="keys">Enter keys (comma-separated): </label>
+            <input type="text" id="keys" required>
+            <label for="tableSize">Hash Table Size: </label>
+            <input type="number" id="tableSize" required>
+            <label for="method">Hashing Method: </label>
+            <select id="method">
+                <option value="selectresolutionstechniques">Select Resolutions Techniques</option>
+                <option value="chaining">Chaining</option>
+                <option value="linearProbing">Linear Probing</option>
+                <option value="quadraticProbing">Quadratic Probing</option>
+                <option value="doubleHashing">Double Hashing</option>
+            </select>
+            <button type="submit">Hash Keys</button>
+            <button type="button" id="resetButton">Reset</button>
+            <button type="button" id="logoutButton">Logout</button>
+        </form>
+        <div id="hashTableContainer">
+            <h2>Hash Table</h2>
+            <table id="hashTable"></table>
+        </div>
+    </div>
+
+
+    <br>
+    <footer>
+        <div class="footer-content">
+            <b>
+            <p style="color: black;">All rights reserved &copy; 2024 Hash Table with Various Collision Resolution System || Mariam Abdullahi Ahmad </p></b>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>

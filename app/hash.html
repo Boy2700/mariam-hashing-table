@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashing Techniques</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        h1,
+        h2 {
+            color: #0056b3;
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        .techniques {
+            margin-bottom: 30px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        .example {
+            background: #e9f6f7;
+            padding: 10px;
+            border-left: 4px solid #0056b3;
+            border-radius: 4px;
+        }
+        
+        .hash-method {
+            margin-bottom: 20px;
+        }
+        
+        .method-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hashing Techniques</h1>
+        <div class="intro">
+            <p>
+                This application allows users to:
+            </p>
+            <ul>
+                <li>Input a key function (the hashing algorithm)</li>
+                <li>Enter a sequence of keys separated by commas</li>
+                <li>Choose between four different hashing methods: chaining, linear probing, quadratic probing, and double hashing</li>
+                <li>Define a user-specified hash table size after selecting a method</li>
+                <li>Insert keys for hashing</li>
+            </ul>
+        </div>
+
+        <div class="techniques">
+            <div class="hash-method">
+                <h2 class="method-title">Separate Chaining</h2>
+                <p>
+                    Using separate chaining for collision resolution, you start by creating a hash table with a fixed-size array, where each slot contains an empty array to handle collisions. The hash function computes the index by taking the key modulo the user-defined
+                    size (<code>key mod user input</code>). An insert function then places each key into the appropriate bucket based on this index. If multiple keys hash to the same index, they are added to the array at that bucket,
+                    effectively chaining them together.
+                </p>
+                <div class="example">
+                    <strong>Example:</strong> Inserting the keys 50, 700, 76, 85, 92, 73, and 101 results in:
+                    <ul>
+                        <li>Bucket 0 contains 700</li>
+                        <li>Bucket 1 contains 50 -&gt; 85 -&gt; 92</li>
+                        <li>Bucket 3 contains 73 -&gt; 101</li>
+                        <li>Bucket 6 contains 76</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="hash-method">
+                <h2 class="method-title">Linear Probing</h2>
+                <p>
+                    To implement linear probing for collision resolution in a hash table, you start with a fixed-size array where each slot can hold a key-value pair or be empty. When inserting a key, you compute its hash index using a hash function like <code>key mod size</code>.
+                    If the calculated index is occupied, linear probing checks the next sequential slots until an empty slot is found.
+                </p>
+                <div class="example">
+                    <strong>Example:</strong> Keys 50, 700, 76, 85, 92, 73, and 101 are inserted as follows:
+                    <ul>
+                        <li>Key 50 at index 1</li>
+                        <li>Key 700 at index 2</li>
+                        <li>Key 76 at index 3</li>
+                        <li>Key 85 probes to find an empty slot</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="hash-method">
+                <h2 class="method-title">Quadratic Probing</h2>
+                <p>
+                    Quadratic probing offers an alternative approach to handling collisions in hash tables, where a quadratic function determines the next index to check upon encountering a collision. The probing sequence is computed as <code>(index + i^2) mod size</code>,
+                    where <code>i</code> represents the number of attempts.
+                </p>
+                <div class="example">
+                    <strong>Example:</strong> Inserting keys 50, 700, 76, 85, 92, 73, and 101 with quadratic probing:
+                    <ul>
+                        <li>Probes at intervals using the quadratic sequence.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="hash-method">
+                <h2 class="method-title">Double Hashing</h2>
+                <p>
+                    Double hashing presents a sophisticated yet powerful approach to resolving collisions in hash tables, integrating a secondary hash function to determine the probe sequence. The probe sequence is defined as <code>(index + i * hash2(key)) mod size</code>,
+                    where <code>i</code> represents the number of attempts.
+                </p>
+                <div class="example">
+                    <strong>Example:</strong> Inserting keys 50, 700, 76, 85, 92, 73, and 101 with double hashing:
+                    <ul>
+                        <li>Utilizes secondary hash function for probing.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <div class="footer-content">
+            <b>
+            <p style="text-align: center;">All rights reserved &copy; 2024 Hash Table with Various Collision Resolution System || Mariam Abdullahi Ahmad </p></b>
+        </div>
+    </footer>
+</body>
+
+</html>
