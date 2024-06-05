@@ -72,7 +72,7 @@ document.getElementById('hashingForm').addEventListener('submit', function(event
 
 function renderTable(hashTable) {
     const table = document.getElementById('hashTable');
-    table.innerHTML = '<tr><th>Index</th><th>Values</th></tr>';
+    table.innerHTML = '<tr style="color:black"><th>Index</th><th>Values</th></tr>';
     hashTable.forEach((value, index) => {
         const row = table.insertRow();
         const cell1 = row.insertCell(0);
